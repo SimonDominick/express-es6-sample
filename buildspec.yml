@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install
+  build:
+    commands:
+      - echo "Building the project..."
+      - npm run build
+      - cp -R public dist-server/
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+      - ls -la dist-server
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
